@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -29,10 +30,26 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    buildFeatures {
+        viewBinding true
+    }
 }
 
 dependencies {
+    //MVP
+    implementation "com.github.moxy-community:moxy:2.2.2"
+    implementation "com.github.moxy-community:moxy-android:2.2.2"
+    implementation "com.github.moxy-community:moxy-material:2.2.2"
+    implementation "com.github.moxy-community:moxy-app-compat:2.2.2"
+    implementation "com.github.moxy-community:moxy-ktx:2.2.2"
+    kapt "com.github.moxy-community:moxy-compiler:2.2.2"
 
+    //navigation
+    implementation "com.github.terrakok:cicerone:7.1"
+
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    kapt "com.github.moxy-community:moxy-compiler:2.2.2"
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.0'
     implementation 'com.google.android.material:material:1.4.0'

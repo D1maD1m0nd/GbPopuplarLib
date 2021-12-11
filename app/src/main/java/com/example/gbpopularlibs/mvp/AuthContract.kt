@@ -3,6 +3,7 @@ package com.example.gbpopularlibs.mvp
 import moxy.MvpPresenter
 import moxy.MvpView
 import moxy.viewstate.strategy.alias.AddToEndSingle
+import moxy.viewstate.strategy.alias.Skip
 
 class AuthContract {
     enum class AuthState {
@@ -19,7 +20,7 @@ class AuthContract {
 
     interface View : MvpView {
 
-        @AddToEndSingle
+        @Skip
         fun setAuthState(state: AuthState)
 
         @AddToEndSingle

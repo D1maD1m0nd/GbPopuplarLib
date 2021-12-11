@@ -6,5 +6,5 @@ import com.github.terrakok.cicerone.androidx.FragmentScreen
 
 
 object Screens {
-    fun Profile(user: User) = FragmentScreen { ProfileFragment(user) }
+    fun Profile(user: User) = FragmentScreen { ProfileFragment.newInstance(user) }
 }

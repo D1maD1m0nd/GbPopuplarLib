@@ -1,0 +1,10 @@
+package com.example.gbpopularlibs.utils
+
+import com.example.gbpopularlibs.data.model.User
+import com.example.gbpopularlibs.framework.ProfileFragment
+import com.github.terrakok.cicerone.androidx.FragmentScreen
+
+
+object Screens {
+    fun Profile(user: User) = FragmentScreen { ProfileFragment(user) }
+}

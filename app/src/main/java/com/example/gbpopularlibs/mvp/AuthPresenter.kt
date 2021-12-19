@@ -43,13 +43,16 @@ class AuthPresenter(
             viewState.setPasswordState(AuthContract.PasswordState.INCORRECT_PASSWORD)
         }
 
-        val user = repo.getUser(login, password)
-        if (user != null) {
-            viewState.setAuthState(AuthContract.AuthState.SUCCESS)
-            router.navigateTo(Screens.Profile(user))
-        } else {
-            viewState.setAuthState(AuthContract.AuthState.ERROR)
-        }
+        repo.getUser(login, password).subscribe( {user ->
+                if (user != null) {
+                    viewState.setAuthState(AuthContract.AuthState.SUCCESS)
+                    router.navigateTo(Screens.Profile(user))
+                } else {
+                    viewState.setAuthState(AuthContract.AuthState.ERROR)
+                }
+            },
+            {}
+        )
     }
 
     override fun showUserScreen() {

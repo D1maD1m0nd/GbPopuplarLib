@@ -14,4 +14,5 @@
     <string name="Auth">Авторизация</string>
     <string name="success_auth">Вы успешно вошли в систему</string>
     <string name="user">Пользователь</string>
+    <string name="calculate">расчет</string>
 </resources>

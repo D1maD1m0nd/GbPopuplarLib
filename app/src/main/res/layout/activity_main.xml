@@ -10,7 +10,7 @@
         android:id="@+id/container_fragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:name="com.example.gbpopularlibs.framework.CalculateFragment"
+        android:name="com.example.gbpopularlibs.framework.UsersFragment"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

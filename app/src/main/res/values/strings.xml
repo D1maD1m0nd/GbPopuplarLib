@@ -15,4 +15,11 @@
     <string name="success_auth">Вы успешно вошли в систему</string>
     <string name="user">Пользователь</string>
     <string name="calculate">расчет</string>
+    <string-array name="users">
+        <item>denisakatov</item>
+        <item>D1maD1m0nd</item>
+        <item>VerushkinRoman</item>
+        <item>Frezyx</item>
+        <item>YuriDyachenko</item>
+    </string-array>
 </resources>

@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.gbpopularlibs.R
 import com.example.gbpopularlibs.app.App
+import com.example.gbpopularlibs.data.model.GitHubUser
 import com.example.gbpopularlibs.databinding.FragmentUsersBinding
 import com.example.gbpopularlibs.mvp.AuthPresenter
 import com.example.gbpopularlibs.mvp.UsersContract
@@ -31,14 +32,8 @@ class UsersFragment() : MvpAppCompatFragment(), UsersContract.View{
         UsersPresenter(App.app.router)
     }
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        if(list.isEmpty()) {
-            initList()
-        }
-    }
     private val adapter = UserAdapter(itemClickListener)
-    private val list = mutableListOf<String>()
+    private var list = mutableListOf<GitHubUser>()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -51,22 +46,21 @@ class UsersFragment() : MvpAppCompatFragment(), UsersContract.View{
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initView()
-    }
-    private fun initList() {
-        val users = resources.getStringArray(R.array.users)
-        list.addAll(users)
+        presenter.getUsers()
     }
     private fun initView() = with(binding){
-        adapter.setData(list)
         userContainerRcView.layoutManager = LinearLayoutManager(context)
-        userContainerRcView.setHasFixedSize(true)
         userContainerRcView.adapter = adapter
     }
     override fun onItemClick(pos: Int) {
-        val login = list[pos]
-        if(login.isNotEmpty()) {
-            presenter.showUser(login)
-        }
+        val login = list[pos].login
+        presenter.showUser(login!!)
+
+    }
+
+    override fun showUsersList(users: List<GitHubUser>) {
+        list = users as MutableList<GitHubUser>
+        adapter.setData(users)
     }
 
     override fun onDestroyView() {

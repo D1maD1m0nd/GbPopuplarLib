@@ -9,4 +9,7 @@ interface GitHubApiService {
 
     @GET("/users/{login}")
     fun getUserByLogin(@Path("login") login: String): Single<GitHubUser>
+
+    @GET("users")
+    fun getUsers() : Single<List<GitHubUser>>
 }

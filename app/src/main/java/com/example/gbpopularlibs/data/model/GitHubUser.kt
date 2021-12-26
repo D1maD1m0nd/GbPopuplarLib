@@ -19,16 +19,6 @@ data class GitHubUser(
 	@field:Json(name="type")
 	val type: String? = null,
 
-	@Json(name="public_repos")
-	val publicRepos: Int? = null,
-
-	@Json(name="followers")
-	val followers: Int? = null,
-
-	@Json(name="avatar_url")
+	@field:Json(name="avatar_url")
 	val avatarUrl: String? = null,
-
-	@Json(name="name")
-	val name: String? = null
-
 ) : Parcelable

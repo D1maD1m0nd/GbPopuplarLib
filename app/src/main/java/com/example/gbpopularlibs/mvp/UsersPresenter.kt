@@ -28,4 +28,18 @@ class UsersPresenter(
                 viewState.setState(UsersContract.State.IDLE)
             })
     }
+
+    override fun getUsers() {
+        repo.getGitHubUsers()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe {
+                viewState.setState(UsersContract.State.LOADING)
+            }
+            .subscribe({
+                viewState.setState(UsersContract.State.IDLE)
+                viewState.showUsersList(it)
+            },{})
+    }
+
 }

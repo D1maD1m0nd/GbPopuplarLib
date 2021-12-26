@@ -8,5 +8,6 @@ class GitHubUserRepositoryImpl : GitHubUserRepository {
     var apiService = GitHubApiImpl.getApiService()
 
     override fun getGitHubUser(login: String) = apiService.getUserByLogin(login)
+    override fun getGitHubUsers(): Single<List<GitHubUser>> = apiService.getUsers()
 
 }

@@ -1,11 +1,10 @@
 package com.example.gbpopularlibs.data.rest
 
-import android.content.SharedPreferences
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 
-object ApiUtils {
-    const val BASE_URL = "https://api.github.com/"
+class ApiUtils {
+
     fun getHttpClient(): OkHttpClient {
         val httpClient = OkHttpClient.Builder()
         httpClient.addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))

@@ -6,7 +6,7 @@ import com.example.gbpopularlibs.framework.ProfileFragment
 import com.github.terrakok.cicerone.androidx.FragmentScreen
 
 
-object Screens {
+class Screens {
     fun Profile(user: User) = FragmentScreen { ProfileFragment.newInstance(user) }
     fun Profile(user: GitHubUser) = FragmentScreen { ProfileFragment.newInstance(user) }
 }

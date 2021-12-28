@@ -1,19 +1,15 @@
 package com.example.gbpopularlibs.framework
 
-import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.gbpopularlibs.R
 import com.example.gbpopularlibs.app.App
 import com.example.gbpopularlibs.data.model.GitHubUser
 import com.example.gbpopularlibs.databinding.FragmentUsersBinding
-import com.example.gbpopularlibs.mvp.AuthPresenter
 import com.example.gbpopularlibs.mvp.UsersContract
-import com.example.gbpopularlibs.mvp.UsersContract.*
+import com.example.gbpopularlibs.mvp.UsersContract.State
 import com.example.gbpopularlibs.mvp.UsersPresenter
 import moxy.MvpAppCompatFragment
 import moxy.ktx.moxyPresenter
@@ -29,7 +25,9 @@ class UsersFragment() : MvpAppCompatFragment(), UsersContract.View{
     }
 
     private val presenter by moxyPresenter {
-        UsersPresenter(App.app.router)
+        UsersPresenter().apply {
+            App.app.appComponent.inject(this)
+        }
     }
 
     private val adapter = UserAdapter(itemClickListener)

@@ -1,26 +1,31 @@
 package com.example.gbpopularlibs.data.model.repository
 
-import com.example.gbpopularlibs.data.db.RoomFactory
+import com.example.gbpopularlibs.data.db.DbStorage
 import com.example.gbpopularlibs.data.model.GitHubUser
-import com.example.gbpopularlibs.data.rest.GitHubApiImpl
+import com.example.gbpopularlibs.data.rest.GitHubApiService
 import io.reactivex.rxjava3.core.Single
+import javax.inject.Inject
 
-class GitHubUserRepositoryImpl : GitHubUserRepository {
-    var apiService = GitHubApiImpl.getApiService()
-    private val roomDb = RoomFactory.create().userDao()
+class GitHubUserRepositoryImpl
+@Inject constructor(
+    private val apiService: GitHubApiService,
+    private val roomDb: DbStorage
+) : GitHubUserRepository {
+    private val dao = roomDb.userDao()
     override fun getGitHubUser(login: String) : Single<GitHubUser>{
-        return roomDb.getUserByLogin(login).flatMap {
+
+        return dao.getUserByLogin(login).flatMap {
             Single.just(it)
         }
     }
 
     override fun getGitHubUsers(): Single<List<GitHubUser>> {
-        return roomDb.getAllUsers()
+        return dao.getAllUsers()
             .flatMap {
                 if (it.isEmpty()) {
                     apiService.getUsers()
                         .map { resultFromServer ->
-                            roomDb.insertAll(resultFromServer)
+                            dao.insertAll(resultFromServer)
                             resultFromServer
                         }
                 } else {

@@ -1,17 +1,23 @@
 package com.example.gbpopularlibs.mvp
 
 import com.example.gbpopularlibs.data.model.repository.Repository
-import com.example.gbpopularlibs.data.model.repository.RepositoryImpl
 import com.example.gbpopularlibs.utils.Screens
 import com.example.gbpopularlibs.utils.ValidateAuth
 import com.github.terrakok.cicerone.Router
+import javax.inject.Inject
 
 
 class AuthPresenter(
-    private val router: Router,
     private val validateAuth: ValidateAuth = ValidateAuth(),
-    private val repo: Repository = RepositoryImpl()
 ) : AuthContract.Presenter() {
+
+    @Inject
+    lateinit var repo: Repository
+    @Inject
+    lateinit var router: Router
+    @Inject
+    lateinit var screens: Screens
+
     override fun onChangeLogin(login: String) {
         val isValid = validateAuth.checkLogin(login)
         val state = if (isValid) {
@@ -46,7 +52,7 @@ class AuthPresenter(
         repo.getUser(login, password).subscribe( {user ->
                 if (user != null) {
                     viewState.setAuthState(AuthContract.AuthState.SUCCESS)
-                    router.navigateTo(Screens.Profile(user))
+                    router.navigateTo(screens.Profile(user))
                 } else {
                     viewState.setAuthState(AuthContract.AuthState.ERROR)
                 }

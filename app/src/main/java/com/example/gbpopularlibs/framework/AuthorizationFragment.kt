@@ -18,7 +18,9 @@ class AuthorizationFragment : MvpAppCompatFragment(), AuthContract.View {
     private var _binding: FragmentAuthorizationBinding? = null
     private val binding get() = _binding!!
     private val presenter by moxyPresenter {
-        AuthPresenter(app.router)
+        AuthPresenter().apply {
+            app.appComponent.inject(this)
+        }
     }
 
     override fun onCreateView(

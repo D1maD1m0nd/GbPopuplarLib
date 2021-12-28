@@ -16,4 +16,7 @@ import com.example.gbpopularlibs.data.model.GitHubUser
 )
 abstract class DbStorage : RoomDatabase() {
     abstract fun userDao(): GitHubUserDao
+    companion object {
+        const val DB_NAME = "github.db"
+    }
 }

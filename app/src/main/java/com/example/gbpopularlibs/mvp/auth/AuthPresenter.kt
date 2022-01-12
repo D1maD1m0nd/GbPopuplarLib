@@ -1,4 +1,4 @@
-package com.example.gbpopularlibs.mvp
+package com.example.gbpopularlibs.mvp.auth
 
 import com.example.gbpopularlibs.data.model.repository.Repository
 import com.example.gbpopularlibs.utils.Screens

@@ -1,4 +1,4 @@
-package com.example.gbpopularlibs.mvp
+package com.example.gbpopularlibs.mvp.calculator
 
 import moxy.MvpPresenter
 import moxy.MvpView

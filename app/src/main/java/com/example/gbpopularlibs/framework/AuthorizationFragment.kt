@@ -8,8 +8,8 @@ import androidx.appcompat.app.AlertDialog
 import com.example.gbpopularlibs.R
 import com.example.gbpopularlibs.app.App.Companion.app
 import com.example.gbpopularlibs.databinding.FragmentAuthorizationBinding
-import com.example.gbpopularlibs.mvp.AuthContract
-import com.example.gbpopularlibs.mvp.AuthPresenter
+import com.example.gbpopularlibs.mvp.auth.AuthContract
+import com.example.gbpopularlibs.mvp.auth.AuthPresenter
 import moxy.MvpAppCompatFragment
 import moxy.ktx.moxyPresenter
 

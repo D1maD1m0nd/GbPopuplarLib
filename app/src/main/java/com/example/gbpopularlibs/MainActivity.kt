@@ -31,4 +31,6 @@ class MainActivity : AppCompatActivity() {
         navigatorHolder.removeNavigator()
         super.onPause()
     }
+
+    fun onClickMethod(view: android.view.View) {}
 }

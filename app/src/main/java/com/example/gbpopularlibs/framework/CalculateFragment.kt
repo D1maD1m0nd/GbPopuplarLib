@@ -1,13 +1,12 @@
 package com.example.gbpopularlibs.framework
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.gbpopularlibs.databinding.FragmentCalculateBinding
-import com.example.gbpopularlibs.mvp.CalculateContract
-import com.example.gbpopularlibs.mvp.CalculatePresenter
+import com.example.gbpopularlibs.mvp.calculator.CalculateContract
+import com.example.gbpopularlibs.mvp.calculator.CalculatePresenter
 import moxy.MvpAppCompatFragment
 import moxy.ktx.moxyPresenter
 

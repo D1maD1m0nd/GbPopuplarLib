@@ -4,10 +4,10 @@ import androidx.room.Room
 import com.example.gbpopularlibs.app.App
 import com.example.gbpopularlibs.data.db.DbStorage
 import com.example.gbpopularlibs.data.db.DbStorage.Companion.DB_NAME
+import com.example.gbpopularlibs.di.components.ProfileComponent
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
-
 @Module
 class RoomModule {
     @Singleton

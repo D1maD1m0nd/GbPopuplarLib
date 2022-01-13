@@ -8,9 +8,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.gbpopularlibs.app.App
 import com.example.gbpopularlibs.data.model.GitHubUser
 import com.example.gbpopularlibs.databinding.FragmentUsersBinding
-import com.example.gbpopularlibs.mvp.UsersContract
-import com.example.gbpopularlibs.mvp.UsersContract.State
-import com.example.gbpopularlibs.mvp.UsersPresenter
+import com.example.gbpopularlibs.mvp.user.UsersContract
+import com.example.gbpopularlibs.mvp.user.UsersContract.State
+import com.example.gbpopularlibs.mvp.user.UsersPresenter
 import moxy.MvpAppCompatFragment
 import moxy.ktx.moxyPresenter
 

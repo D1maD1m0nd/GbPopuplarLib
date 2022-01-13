@@ -1,4 +1,4 @@
-package com.example.gbpopularlibs.mvp
+package com.example.gbpopularlibs.mvp.user
 
 import com.example.gbpopularlibs.data.model.GitHubUser
 import moxy.MvpPresenter

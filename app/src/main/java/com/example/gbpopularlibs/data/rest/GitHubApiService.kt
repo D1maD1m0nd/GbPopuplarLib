@@ -1,5 +1,6 @@
 package com.example.gbpopularlibs.data.rest
 
+import com.example.gbpopularlibs.data.model.GitHubRepo
 import com.example.gbpopularlibs.data.model.GitHubUser
 import io.reactivex.rxjava3.core.Single
 import retrofit2.http.GET
@@ -12,4 +13,7 @@ interface GitHubApiService {
 
     @GET("users")
     fun getUsers() : Single<List<GitHubUser>>
+
+    @GET("/users/{login}/repos")
+    fun getUserRepositories(@Path("login") login: String): Single<List<GitHubRepo>>
 }

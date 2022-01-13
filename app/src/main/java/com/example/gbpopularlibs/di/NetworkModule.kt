@@ -2,6 +2,7 @@ package com.example.gbpopularlibs.di
 
 import com.example.gbpopularlibs.data.rest.ApiUtils
 import com.example.gbpopularlibs.data.rest.GitHubApiService
+import com.example.gbpopularlibs.di.components.ProfileComponent
 import com.squareup.moshi.Moshi
 import dagger.Module
 import dagger.Provides
@@ -12,7 +13,6 @@ import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
 import javax.inject.Named
 import javax.inject.Singleton
-
 @Module
 class NetworkModule {
 

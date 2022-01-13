@@ -18,8 +18,4 @@ class RepoModule {
     @Singleton
     @Provides
     fun authRepository() : Repository = RepositoryImpl()
-
-    @Singleton
-    @Provides
-    fun gitRepoRepository(api: GitHubApiService, cache: DbStorage) : GitHubRepoRepository = GitHubRepoRepositoryImpl(api, cache)
 }

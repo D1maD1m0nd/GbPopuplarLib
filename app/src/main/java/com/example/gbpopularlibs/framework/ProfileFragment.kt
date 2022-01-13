@@ -32,7 +32,7 @@ class ProfileFragment : MvpAppCompatFragment(), ProfileContract.View {
     var adapter: ArrayAdapter<String>? = null
     private val presenter by moxyPresenter {
         ProfilePresenter().apply {
-            App.app.appComponent.inject(this)
+            App.app.appComponent.provideProfileComponent().build().inject(this)
         }
     }
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -9,7 +9,7 @@ import javax.inject.Inject
 class GitHubRepoRepositoryImpl
     @Inject constructor(
         private val apiService: GitHubApiService,
-        private val roomDb: DbStorage
+        roomDb: DbStorage,
     ): GitHubRepoRepository {
     private val dao = roomDb.repoDao()
     override fun getUserRepo(login: String) : Single<List<GitHubRepo>>{

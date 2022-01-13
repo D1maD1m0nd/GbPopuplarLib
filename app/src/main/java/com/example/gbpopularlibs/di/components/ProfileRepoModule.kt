@@ -13,6 +13,10 @@ import dagger.Provides
 class ProfileRepoModule {
     @FragmentScope
     @Provides
-    fun gitRepoRepository(api: GitHubApiService, cache: DbStorage)
-    : GitHubRepoRepository = GitHubRepoRepositoryImpl(api, cache)
+    fun gitRepoDao(cache: DbStorage) : GitHubRepositoryDao = cache.repoDao()
+
+    @FragmentScope
+    @Provides
+    fun gitRepoRepository(api: GitHubApiService, dao: GitHubRepositoryDao)
+    : GitHubRepoRepository = GitHubRepoRepositoryImpl(api, dao)
 }

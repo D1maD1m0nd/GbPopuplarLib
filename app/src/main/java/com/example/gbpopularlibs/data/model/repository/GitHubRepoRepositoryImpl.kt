@@ -1,6 +1,7 @@
 package com.example.gbpopularlibs.data.model.repository
 
 import com.example.gbpopularlibs.data.db.DbStorage
+import com.example.gbpopularlibs.data.db.GitHubRepositoryDao
 import com.example.gbpopularlibs.data.model.GitHubRepo
 import com.example.gbpopularlibs.data.rest.GitHubApiService
 import io.reactivex.rxjava3.core.Single
@@ -9,9 +10,9 @@ import javax.inject.Inject
 class GitHubRepoRepositoryImpl
     @Inject constructor(
         private val apiService: GitHubApiService,
-        roomDb: DbStorage,
+        private val dao : GitHubRepositoryDao
     ): GitHubRepoRepository {
-    private val dao = roomDb.repoDao()
+
     override fun getUserRepo(login: String) : Single<List<GitHubRepo>>{
         return dao.getReposByUserLogin(login)
             .flatMap {

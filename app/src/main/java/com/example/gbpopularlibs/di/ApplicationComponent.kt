@@ -29,7 +29,4 @@ interface ApplicationComponent {
     fun inject(fragment: UsersFragment)
     fun inject(presenter: UsersPresenter)
     fun inject(presenter: AuthPresenter)
-    fun inject(presenter: ProfilePresenter)
-    fun inject(fragment: ProfileFragment)
-
 }
